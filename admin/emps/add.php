@@ -13,10 +13,18 @@ if (isset($_POST['send'])) {
     $addess = $_POST['addess'];
     $filed = $_POST['filed'];
     $adminId = $_POST['adminId'];
-
-    $insert = "INSERT INTO `employees` VALUES (NULL ,'$name','$phone','$addess','$filed',$adminId )";
+    // Image Code
+    $image_name = $_FILES['image']['name'];
+    $image_tmp = $_FILES['image']['tmp_name'];
+    $location = "upload/" . $image_name;
+    if (move_uploaded_file($image_tmp, $location)) {
+        echo "image Uploaded Done";
+    } else {
+        echo "image Uploaded false";
+    }
+    $insert = "INSERT INTO `employees` VALUES (NULL ,'$name','$phone','$addess','$filed','$image_name',$adminId )";
     $i = mysqli_query($conn, $insert);
-    testMessage($i, "Sign up ");
+    testMessage($i, "تم اضافه الصنايعي ");
 }
 
 
@@ -35,6 +43,7 @@ if (isset($_GET['edit'])) {
     $filed = $row['filed'];
     $phone = $row['phone'];
     $addess = $row['address'];
+    
     if (isset($_POST['update'])) {
         $name = $_POST['name'];
         $phone = $_POST['phone'];
@@ -43,7 +52,7 @@ if (isset($_GET['edit'])) {
         $adminId = $_POST['adminId'];
         $update = "UPDATE `employees` SET `name` = '$name', `phone` = '$phone',`address` = '$addess' , `filed` = '$filed', `adminId` = '$adminId' where id = $id";
         $u = mysqli_query($conn, $update);
-        testMessage($u, "Updated travel_agency");
+        testMessage($u, "تم تعديل الصنايعي");
         // header('LOCATION: http://localhost/ivisitor/admin/travelAgenecy/list.php');
     }
 }
@@ -84,6 +93,10 @@ if (isset($_GET['edit'])) {
                                 <div class="form-group">
                                     <label> التخصص </label>
                                     <input type="text"  value="<?php echo $filed ?>" class="form-control" name="filed">
+                                </div>
+                                <div class="form-group">
+                                    <label> رفق صوره البطاقه </label>
+                                    <input type="file"  class="form-control" name="image">
                                 </div>
                                 <div class="form-group">
                                     <label> ادمن </label>

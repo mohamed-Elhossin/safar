@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 11:54 AM
+-- Generation Time: Jun 12, 2022 at 03:13 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -45,7 +45,8 @@ INSERT INTO `admin` (`id`, `name`, `password`, `email`, `job`, `image`) VALUES
 (2, 'ahmed tofiq', '123', 'm.m.m.elhossin@gmail.com', '', 'edit2.png'),
 (4, 'Mohamed El hosisny', '123', 'm.m.m.elhossin@gmail.com', 'Web developer', '63346499.jfif'),
 (5, 'islam', '1234', 'islam@gmail.com', 'CEO', 'Gull_portrait_ca_usa.jpg'),
-(6, 'ahmed tofiq', '123', 'm.m.m.elhossin@gmail.com', 'Web developer', 'pexels-photo-227507.jpeg');
+(6, 'ahmed tofiq', '123', 'm.m.m.elhossin@gmail.com', 'Web developer', 'pexels-photo-227507.jpeg'),
+(7, 'محمد سافر', '1234', 'mohamedsafar@gmail.com', 'CEO', '241433787_4111265705666617_5131321965790975589_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -59,6 +60,7 @@ CREATE TABLE `employees` (
   `phone` varchar(66) NOT NULL,
   `address` varchar(50) NOT NULL,
   `filed` varchar(22) NOT NULL,
+  `image` varchar(111) NOT NULL,
   `adminId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -66,8 +68,9 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`, `phone`, `address`, `filed`, `adminId`) VALUES
-(1, 'محمد الحسين', '01117433885', 'مدينه نصر', 'سباكه', 1);
+INSERT INTO `employees` (`id`, `name`, `phone`, `address`, `filed`, `image`, `adminId`) VALUES
+(1, 'محمد يسار', '01117433885', 'مدينه نصر', 'سباكه', '', 1),
+(2, 'محمد طارق', '01221221', 'الاسماعليه', 'نجاره', 'Gull_portrait_ca_usa.jpg', 7);
 
 -- --------------------------------------------------------
 
@@ -86,7 +89,8 @@ CREATE TABLE `notes` (
 --
 
 INSERT INTO `notes` (`id`, `data`, `userId`) VALUES
-(2, 'thnals', 3);
+(2, 'thnals', 3),
+(3, 'مساء الخير انا صنايعي عايز اشارك', 4);
 
 -- --------------------------------------------------------
 
@@ -105,7 +109,8 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `userId`, `empId`) VALUES
-(1, 3, 1);
+(1, 3, 1),
+(2, 4, 2);
 
 -- --------------------------------------------------------
 
@@ -126,7 +131,8 @@ CREATE TABLE `reting` (
 
 INSERT INTO `reting` (`id`, `userId`, `empId`, `rate`) VALUES
 (1, 3, 1, 6),
-(2, 3, 1, 6);
+(2, 3, 1, 6),
+(3, 4, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -150,7 +156,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `address`, `phone`) VALUES
 (1, 'mohamed ', 'mohamedaymanmoudy1@gmail.com', '123', 'asdfdsfasfdsafdsafdsaf', '01117433885'),
 (2, 'hanan', 'hanan@gmail.com', '1234', 'nacer city', '0122215562'),
-(3, 'Mohamed El hosisny', 'm.m.m.elhossin@gmail.com', '1234', 'asdfdsfasfdsafdsafdsaf', '01117433885');
+(3, 'Mohamed El hosisny', 'm.m.m.elhossin@gmail.com', '1234', 'asdfdsfasfdsafdsafdsaf', '01117433885'),
+(4, 'احمد جابر', 'ahmed@gmail.com', '1234', 'مدينه نصر', '01117433885');
 
 --
 -- Indexes for dumped tables
@@ -206,37 +213,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reting`
 --
 ALTER TABLE `reting`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

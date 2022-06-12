@@ -30,14 +30,16 @@ $s = mysqli_query($conn, $select);
                 <th>الكود</th>
                 <th>الاسم</th>
                 <th>الرقم</th>
-                <th>القتيم</th>
+                <th>رقم الخدمه</th>
+
               </tr>
               <?php foreach ($s as $data) { ?>
                 <tr>
                   <th> <?php echo $data['id'] ?> </th>
                   <th> <?php echo $data['name'] ?> </th>
                   <th> <?php echo $data['phone'] ?> </th>
-                  <th> <?php echo $data['rate'] ?> </th>
+                  <th> <?php echo $data['empId'] ?> </th>
+
                 </tr>
               <?php } ?>
             </table>

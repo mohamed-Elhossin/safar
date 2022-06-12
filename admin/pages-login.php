@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
         </div>";
   }
 }
-print_r($_SESSION);
+
 ?>
 <main>
   <div class="container">

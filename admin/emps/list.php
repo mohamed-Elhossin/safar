@@ -33,6 +33,7 @@ if (isset($_GET['delete'])) {
                 <th>الرقم</th>
                 <th>العنوان</th>
                 <th>التخصص</th>
+                <th>البطاقه</th>
                 <th colspan="3">Action</th>
               </tr>
               <?php foreach ($s as $data) { ?>
@@ -42,6 +43,7 @@ if (isset($_GET['delete'])) {
                   <th> <?php echo $data['phone'] ?> </th>
                   <th> <?php echo $data['address'] ?> </th>
                   <th> <?php echo $data['filed'] ?> </th>
+                  <th> <img width="30" src="./upload/<?php echo $data['image'] ?>" alt=""> </th>
                   <th> <a class="btn btn-warning" href="/safar/admin/emps/add.php?edit=<?php echo $data['id'] ?>">تعديل </a> </th>
                   <th> <a class="btn btn-danger" onclick="return confirm('are your Sure !')" href="/safar/admin/emps/list.php?delete=<?php echo $data['id'] ?>">مسح </a> </th>
                 </tr>
